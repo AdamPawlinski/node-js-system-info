@@ -1,4 +1,5 @@
 var os = require('os');
+var colors = require('colors');
 var timeConvert = require('./timeConvert')
 
 function getOSinfo() {
@@ -13,13 +14,13 @@ function getOSinfo() {
   } else if (type === "Windows_NT") {
     type = "Windows";
   };
-  
-  console.log("System: ", type);
-  console.log("Release: ", release);
-  console.log("CPU model: ", cpu);
-  console.log("Uptime: ~", uptime);
-  console.log("User name: ", userInfo.username);
-  console.log("User name: ", userInfo.homedir);
+
+  console.log("System: " .bold.yellow, type);
+  console.log("Release: ".yellow, release);
+  console.log("CPU model: " .bold.red, cpu);
+  console.log("Uptime: ~" .red, uptime);
+  console.log("User name: " .bold.bgBlue, userInfo.username);
+  console.log("User directory: " .underline.bgBlue, userInfo.homedir);
 };
 
 exports.print = getOSinfo;
