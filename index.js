@@ -3,8 +3,8 @@ var OSinfo = require('./modules/OSinfo');
 
 process.stdin.on('readable', function() {
   var input = process.stdin.read();
-  if (input === null) {
-    return
+  if (!input) {
+    return;
   }
   var instruction = input.toString().trim();
   switch (instruction) {
